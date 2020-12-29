@@ -45,7 +45,14 @@ function readStock(data){
 }
 
 function writeStock(x){
-database.ref('/').update({
-  Food:x
+
+  if(x<=0){
+    x = 0;
+  }else{
+    x = x-1;
+  }
+
+  database.ref('/').update({
+  food:x
 })
 }
